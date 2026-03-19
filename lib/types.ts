@@ -1,3 +1,8 @@
+// Author: Bubba (OpenClaw agent)
+// Date: 2026-03-19
+// PURPOSE: Core TypeScript type definitions for the ATC UI — WorkItem, Agent, AppState, ProjectMetrics, and Status enums. Single source of truth for all data shapes shared between the simulation engine, store, and React components.
+// SRP/DRY check: Pass — preserved from original ATC, pending real data integration
+
 // Core TypeScript types for the Calming Control Room
 
 export type Status = 'queued' | 'assigned' | 'in_progress' | 'blocked' | 'done';
