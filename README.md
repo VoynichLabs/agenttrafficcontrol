@@ -1,5 +1,13 @@
 # Agent Traffic Control
 
+## VoynichLabs Fork
+
+This is a fork of [gkamradt/agenttrafficcontrol](https://github.com/gkamradt/agenttrafficcontrol), repurposed to visualize real agent coordination data from the PlanExe project.
+
+The original synthetic simulation engine has been removed. The UI shell and component architecture are preserved, ready to be wired to real data sources (OpenClaw session logs, GitHub PR timelines, human intervention events).
+
+See [swarm-coordination/plans/atc-data-mapping-plan.md](https://github.com/VoynichLabs/swarm-coordination/blob/main/plans/atc-data-mapping-plan.md) for the data mapping plan.
+
 A minimal Next.js dashboard to monitor and control AI agent traffic. View live at https://agenttrafficcontrol.com.
 
 Best with full screen and sound on.
