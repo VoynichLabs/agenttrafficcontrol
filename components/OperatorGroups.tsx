@@ -39,7 +39,7 @@ export default function OperatorGroups() {
 
   const groups = useMemo(() => {
     const plan = pickPlan(planName);
-    if (plan.groups && plan.groups.length) return plan.groups;
+    if (plan?.groups && plan.groups.length) return plan.groups;
     return deriveGroupsFromItems(items);
   }, [planName, items]);
 

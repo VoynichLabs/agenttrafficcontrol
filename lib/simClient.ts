@@ -1,8 +1,10 @@
 "use client";
 
-// simClient.ts — UI-side singleton for the data bridge.
-// The synthetic Web Worker engine has been removed.
-// Wire a real data source (WebSocket, SSE, file replay) here.
+// Author: Bubba (OpenClaw agent)
+// Date: 2026-03-19
+// PURPOSE: UI-side singleton for the data bridge. Initializes the replay engine
+// Web Worker and wires it through simBridge → bridgeToStore → appStore.
+// Exposes ensureConnected(), postIntent(), isConnected(), destroyConnection().
 
 import { createSimBridge, type SimBridge } from '@/lib/simBridge';
 import { attachBridgeToStore } from '@/lib/bridgeToStore';
@@ -11,16 +13,47 @@ import { debugLog } from '@/lib/debug';
 
 let _bridge: SimBridge | null = null;
 let _link: { destroy: () => void } | null = null;
+let _worker: Worker | null = null;
 
 export function isConnected() {
   return !!_bridge;
 }
 
 export function ensureConnected() {
-  // TODO: replace with real data source (WebSocket, SSE, file replay)
-  // The synthetic engine worker has been removed.
-  debugLog('simClient', 'ensureConnected: no engine — awaiting real data source');
-  return null;
+  if (_bridge) return _bridge;
+
+  // Only run in browser
+  if (typeof window === 'undefined') {
+    debugLog('simClient', 'ensureConnected: SSR — skip worker init');
+    return null;
+  }
+
+  try {
+    // Create the replay engine worker
+    _worker = new Worker(new URL('../workers/engine.ts', import.meta.url), {
+      type: 'module',
+    });
+
+    // Wrap in simBridge (PortLike adapter)
+    const port = {
+      postMessage: (msg: unknown) => _worker!.postMessage(msg),
+      addEventListener: (event: 'message', handler: (e: { data: unknown }) => void) => {
+        _worker!.addEventListener(event, handler as unknown as EventListener);
+      },
+      removeEventListener: (event: 'message', handler: (e: { data: unknown }) => void) => {
+        _worker!.removeEventListener(event, handler as unknown as EventListener);
+      },
+    };
+
+    _bridge = createSimBridge(port);
+    _link = attachBridgeToStore(_bridge, { getState: () => appStore.getState() });
+
+    debugLog('simClient', 'ensureConnected: replay engine worker started');
+    return _bridge;
+  } catch (err) {
+    debugLog('simClient', 'ensureConnected: failed to start worker', err);
+    return null;
+  }
 }
 
 export function setExternalBridge(bridge: SimBridge, link: { destroy: () => void }) {
@@ -37,4 +70,8 @@ export function destroyConnection() {
   _link?.destroy();
   _link = null;
   _bridge = null;
+  if (_worker) {
+    _worker.terminate();
+    _worker = null;
+  }
 }

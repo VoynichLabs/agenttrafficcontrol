@@ -48,7 +48,7 @@ export default function TickIndicator() {
     debugLog('ui', 'bridge-created');
     bridgeRef!.current = bridge;
     const link = attachBridgeToStore(bridge, appStore);
-    setExternalBridge(bridge, worker, link);
+    setExternalBridge(bridge, link);
 
     // subscribe to lastTickId
     const unsub = appStore.subscribe((state) => {

@@ -12,8 +12,8 @@ export default function ProjectDescription() {
   );
 
   const desc = useMemo(() => {
-    const p = getPlanByName(plan) || ALL_PLANS[0];
-    return p.description || 'Agent Traffic Control';
+    const p = getPlanByName(plan) ?? ALL_PLANS[0];
+    return p?.description ?? 'PlanExe — Real Event Replay';
   }, [plan]);
 
   return <span>{desc}</span>;
