@@ -12,25 +12,30 @@ export default function Home() {
   return (
     <div className="h-screen overflow-hidden bg-black text-white flex flex-col">
       {/* Header */}
-      <header className="p-4">
-        <h1 className="text-2xl tracking-tighter font-bold text-gray-500 text-spacing-px">AGENT TRAFFIC CONTROL</h1>
-        <p className="mt-1 text-[10px] leading-none text-gray-500">
+      <header className="p-4 flex items-baseline gap-4">
+        <h1 className="text-2xl tracking-tighter font-bold text-[#c79325] text-spacing-px">LOBSTER OPS</h1>
+        <p className="text-[10px] leading-none text-gray-600">
+          <span className="text-gray-500">VOYNICH LABS</span>
+          <span className="px-1 text-gray-700">•</span>
+          <span className="text-gray-500">REAL AGENT COORDINATION DATA</span>
+          <span className="px-1 text-gray-700">•</span>
+          <span className="text-gray-600">BUILT ON </span>
           <a
             href="https://github.com/gkamradt/agenttrafficcontrol"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-gray-400 italic underline"
+            className="hover:text-gray-400 underline text-gray-500"
           >
-            OPEN SOURCE
+            AGENT TRAFFIC CONTROL
           </a>
-          <span className="px-1">•</span>
+          <span className="text-gray-600"> BY </span>
           <a
             href="https://x.com/gregkamradt"
             target="_blank"
             rel="noopener noreferrer"
-            className="hover:text-gray-400 italic underline"
+            className="hover:text-gray-400 underline text-gray-500"
           >
-            BY GREG
+            GREG KAMRADT
           </a>
         </p>
       </header>
@@ -68,7 +73,7 @@ export default function Home() {
             {/* Operator Action Items (middle) */}
             <div className="min-h-0 overflow-hidden border border-[#352b19ff] bg-black border-b-0 flex flex-col">
               <div className="flex items-center border-b-3 border-[#352b19ff]">
-                <h2 className="text-lg text-[#d79326ff] pl-2 pr-2">OPERATOR ACTION ITEMS</h2>
+                <h2 className="text-lg text-[#d79326ff] pl-2 pr-2">CREW ROSTER</h2>
               </div>
               <div className="flex-1 min-h-0 overflow-auto">
                 <OperatorGroups />
