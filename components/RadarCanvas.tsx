@@ -30,10 +30,10 @@ type StoryConfig = {
 const STORY: StoryConfig = {
   lines: [
     { text: "Initializing agent traffic control..", pauseAfterMs: 3000, cursorChar: '.', blinkMs: 500 },
-    { text: "Connecting to ATC radio..", pauseAfterMs: 3200, cursorChar: '.', blinkMs: 300 },
+    { text: "Connecting to Lobster Ops..", pauseAfterMs: 3200, cursorChar: '.', blinkMs: 300 },
     { text: "Connecting ambient music..", pauseAfterMs: 3200, cursorChar: '.', blinkMs: 600 },
     { text: "Enjoy the vibes of agents working..", pauseAfterMs: 4200, cursorChar: '.', blinkMs: 450 },
-    { text: "Play music below; switch between different ATC locations...", pauseAfterMs: 5200, cursorChar: '\\/', blinkMs: 500 },
+    { text: "Loading real agent coordination data...", pauseAfterMs: 5200, cursorChar: '\\/', blinkMs: 500 },
   ],
   typingMsPerChar: 5,
   deletingMsPerChar: 14,

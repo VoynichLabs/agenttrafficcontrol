@@ -53,27 +53,27 @@ const jetBrainsMono = localFont({
 export const metadata: Metadata = {
   // Helps Next generate absolute URLs for OG/Twitter images
   metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"),
-  title: "Agent Traffic Control (ATC)",
-  description: "Direct the vibe of your agents in the Agent Traffic Control Room",
+  title: "Lobster Ops — Real Agent Coordination",
+  description: "Watch AI agents build software in real-time. Real data from the PlanExe project by VoynichLabs.",
   openGraph: {
-    title: "Agent Traffic Control (ATC)",
-    description: "Direct the vibe of your agents in the Agent Traffic Control Room",
+    title: "Lobster Ops — Real Agent Coordination",
+    description: "Watch AI agents build software in real-time. Real data from the PlanExe project by VoynichLabs.",
     type: "website",
     url: "/",
-    siteName: "Agent Traffic Control (ATC)",
+    siteName: "Lobster Ops",
     images: [
       {
         url: "/images/ATC_OG.png",
         width: 2048,
         height: 1280,
-        alt: "Agent Traffic Control (ATC)",
+        alt: "Lobster Ops",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Agent Traffic Control (ATC)",
-    description: "Direct the vibe of your agents in the Agent Traffic Control Room",
+    title: "Lobster Ops — Real Agent Coordination",
+    description: "Watch AI agents build software in real-time. Real data from the PlanExe project by VoynichLabs.",
     images: ["/images/ATC_OG.png"],
   },
 };
