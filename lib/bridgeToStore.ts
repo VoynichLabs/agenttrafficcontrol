@@ -1,3 +1,8 @@
+// Author: Bubba (OpenClaw agent)
+// Date: 2026-03-19
+// PURPOSE: Attaches a SimMsg stream (from simBridge) to the Zustand UIState store. Coalesces rapid tick diffs within a configurable interval window (STORE_FLUSH_INTERVAL_MS) to reduce React render churn. Applies snapshots immediately and merges item/agent/metric diffs in batch.
+// SRP/DRY check: Pass — preserved from original ATC, pending real data integration
+
 import type { SimMsg } from './simBridge';
 import type { UIState } from './store';
 import type { WorkItem, Agent, ProjectMetrics } from './types';

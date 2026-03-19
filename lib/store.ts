@@ -1,3 +1,8 @@
+// Author: Bubba (OpenClaw agent)
+// Date: 2026-03-19
+// PURPOSE: Zustand vanilla store (UIState) for the ATC app. Extends AppState with UI-only fields (lastTickId, plan_name, pingAudioEnabled) and reducers (applySnapshot, applyTick, setPlanName, setPingAudioEnabled). Central state container consumed by all React components.
+// SRP/DRY check: Pass — preserved from original ATC, pending real data integration
+
 import { createStore } from 'zustand/vanilla';
 import type { Agent, AppState, ProjectMetrics, WorkItem } from './types';
 import { DEFAULT_SEED, RUNNING_DEFAULT } from './config';

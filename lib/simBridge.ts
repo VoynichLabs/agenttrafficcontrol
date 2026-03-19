@@ -1,3 +1,8 @@
+// Author: Bubba (OpenClaw agent)
+// Date: 2026-03-19
+// PURPOSE: UI-side transport boundary abstracting the simulation message channel (Worker today, WebSocket later). Defines SimMsg and SimIntent discriminated unions, provides WorkerBridge class that batches inbound tick messages, and exposes a subscribe/send API consumed by bridgeToStore and React components.
+// SRP/DRY check: Pass — preserved from original ATC, pending real data integration
+
 // simBridge: UI-side transport boundary for simulation messages
 // Hides transport (Worker now, WebSocket later) behind a small API.
 
